@@ -1,11 +1,11 @@
 package view;
 
 import javax.swing.*;
-import javax.swing.event.AncestorListener;
-
+//import java.awt.event.ActionEvent;
+//import java.awt.event.ActionListener;
 import java.awt.*;
 
-public class Select_JPanel extends JPanel //implements AncestorListener
+public class Select_JPanel extends JPanel //implements ActionListener 
 {
     public Select_JPanel(){
         setBounds(100, 100, 300, 520);  
