@@ -1,5 +1,4 @@
 package view;
-
 import javax.swing.*;
 import java.awt.*;
 
@@ -18,15 +17,18 @@ public class Classic_gamemode extends JFrame {
         setLocationRelativeTo(null);
         setVisible(true);
 
+        // Panel chứa 9 ô cho chế độ classic 
         JPanel enviPanel = new JPanel();
         enviPanel.setBounds(0, 0, 600, 600);
-        enviPanel.setBackground(Color.BLUE);
         JButton [][]square = new JButton[3][3];
         enviPanel.setLayout(new GridLayout(3,3,0,0));
         for(int i=0;i<3;i++)
             for(int j=0;j<3;j++){
                 JButton tmp = new JButton("X");
                 tmp.setFont(font);
+                tmp.addActionListener(event ->{
+                    // Xử lý các nước đi của người chơi 
+                });
                 square[i][j] = tmp;
                 enviPanel.add(square[i][j]);
             }
