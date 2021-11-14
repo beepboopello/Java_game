@@ -1,5 +1,4 @@
 package controller;
-import java.io.IOException;
 import view.Title_sc;
 
 /*
@@ -12,7 +11,7 @@ import view.Title_sc;
  * @author khangiguess
  */
 public class Game {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args){
         new Title_sc();
     }
 }

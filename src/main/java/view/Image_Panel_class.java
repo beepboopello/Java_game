@@ -13,7 +13,7 @@ import javax.swing.JPanel;
  *
  * @author khangiguess
  */
-    public class Image_Panel_class extends JPanel{
+    public class Image_Panel_class extends JPanel{ // Class không / chưa được sử dụng tới 
         private final Image img;
         public Image_Panel_class(String img){
             ImageIcon bg = new ImageIcon(img);

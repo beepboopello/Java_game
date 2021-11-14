@@ -1,46 +1,38 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package view;
-//import java.awt.Image;
-//import java.awt.Color;
-//import java.awt.HeadlessException;
-//import java.awt.event.ActionEvent;
-//import java.awt.event.ActionListener;
-//import javax.swing.JFrame;
-//import javax.swing.JLabel;
-//import javax.swing.JPanel;
 import java.awt.*;
 import javax.swing.*;
+//import java.awt.event.ActionListener; // Bỏ dấu chú thích khi cần implement interface "ActionListener"
 
-/**
- *
- * @author khangiguess
- */
 public class Title_sc extends JFrame //implements ActionListener 
 {
- 
+    private Highscore_JPanel highscore;
+    private Gamemode_JPanel gamemode;
     private Image_Panel_class background;
-    private JPanel selectpanel;
-    private JLabel labelgamemode;
-
-    private final Font FontForLabel = new Font("Comic Sans MS", Font.PLAIN, 16);
     public Title_sc(){
-        
-        background = new Image_Panel_class("view/bg.png"); // Thêm background từ file ảnh có sẵn - lớp image_panel - chưa hoàn thiện 
+         // Thêm background từ file ảnh có sẵn - lớp image_panel - chưa hoàn thiện 
+        background = new Image_Panel_class("view/bg.png");
         background.setBackground(Color.white);
         this.setContentPane(background);
 
-        this.add(new Select_JPanel()); // Khởi tạo select pane chứa các lựa chọn của title screen
+         // Khởi tạo select pane chứa các lựa chọn của title screen
+        this.add(new Select_JPanel(this));
 
-        JPanel selectbackground = new JPanel(); // Background của select pane 
+        // Background của select pane 
+        JPanel selectbackground = new JPanel(); 
         selectbackground.setBounds(0,0,500,720);
         selectbackground.setBackground(Color.lightGray);
         this.add(selectbackground);
 
+        //Panel chứa thông tin điểm cao của top 10 người chơi - mặc định visible = false 
+        highscore = new Highscore_JPanel();
+        highscore.setVisible(false);
+        this.add(highscore);
 
+        gamemode = new Gamemode_JPanel(this);
+        gamemode.setVisible(false);
+        this.add(gamemode);
 
+        //Setting cơ bản của frame
         Dimension size = new Dimension(1280,720);
         setPreferredSize(size);
         setMaximumSize(size);
@@ -51,7 +43,22 @@ public class Title_sc extends JFrame //implements ActionListener
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setVisible(true);
-          
+
+    }
+    //Thay đổi khả năng hiển thị của panel điểm cao 
+    public void changeVisible_highscore(boolean val){
+        highscore.setVisible(val);
+    }
+    public boolean getVisible_highscore(){
+        return highscore.isVisible();
+    }
+    //Thay đổi khả năng hiển thị của panel gamemode
+    public void changeVisible_gamemode(boolean val){
+        gamemode.setVisible(val);
+    }
+
+    public boolean getVisible_gamemode(){
+        return gamemode.isVisible();
     }
      
 }
