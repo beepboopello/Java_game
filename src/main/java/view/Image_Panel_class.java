@@ -4,7 +4,6 @@
  */
 package view;
 
-import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
@@ -14,9 +13,9 @@ import javax.swing.JPanel;
  *
  * @author khangiguess
  */
-    public class Image_Panel extends JPanel{
+    public class Image_Panel_class extends JPanel{
         private final Image img;
-        public Image_Panel(String img){
+        public Image_Panel_class(String img){
             ImageIcon bg = new ImageIcon(img);
             this.img = bg.getImage();
         }
