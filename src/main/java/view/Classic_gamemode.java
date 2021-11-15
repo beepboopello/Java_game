@@ -6,7 +6,7 @@ public class Classic_gamemode extends JFrame {
     private final Font font = new Font("Comic Sans MS", Font.PLAIN, 40);
     public Classic_gamemode(Title_sc title){
         // Setting cơ bản của frame chứa classic mode
-        Dimension size = new Dimension(600,900);
+        Dimension size = new Dimension(400,600);
         setPreferredSize(size);
         setMaximumSize(size);
         setMinimumSize(size);
@@ -19,7 +19,7 @@ public class Classic_gamemode extends JFrame {
 
         // Panel chứa 9 ô cho chế độ classic 
         JPanel enviPanel = new JPanel();
-        enviPanel.setBounds(0, 0, 600, 600);
+        enviPanel.setBounds(0, 0, 400, 400);
         JButton [][]square = new JButton[3][3];
         enviPanel.setLayout(new GridLayout(3,3,0,0));
         for(int i=0;i<3;i++)
@@ -33,5 +33,19 @@ public class Classic_gamemode extends JFrame {
                 enviPanel.add(square[i][j]);
             }
         add(enviPanel);
+
+        //Panel thuộc không gian còn lại của frame chứa các button điều kiển ,etc...
+        JPanel bottomPanel = new JPanel();
+        bottomPanel.setBounds(0, 400, 400, 200);
+        bottomPanel.setLayout(null);
+        JButton returnButton = new JButton("Return");
+        returnButton.setBounds(50, 25, 100, 50);
+        returnButton.setFont(new Font("Comic Sans MS", Font.PLAIN, 16));
+        returnButton.addActionListener(event ->{
+            title.setVisible(true);
+            this.dispose();
+        });
+        bottomPanel.add(returnButton);
+        add(bottomPanel);
     }
 }
