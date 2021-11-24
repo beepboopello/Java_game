@@ -1,28 +1,41 @@
 package view;
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ *
+ * @author Admin
+ */
 import javax.swing.*;
 import java.awt.*;
 import model.cell;
 import java.io.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-public class Classic_gamemode extends JFrame {
+import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
+
+public class Custom_gamemode extends JFrame {
     private final Font font = new Font("Comic Sans MS", Font.PLAIN, 40);
     private String current_val = "x";
     private cell[][] arrcell;
     private int n, m, dkwin;
     Title_sc title;
     private Image_Panel_class background;
-    public Classic_gamemode(Title_sc title) throws IOException{
+    public Custom_gamemode(Title_sc title) throws IOException{
         // Setting cơ bản của frame chứa classic mode
         background = new Image_Panel_class("bg.png");
         background.setBackground(Color.white);
         this.setContentPane(background);
-        n=3;
-        m=3;
-        dkwin=3;
+        n=10;
+        m=10;
+        dkwin=5;
         arrcell = new cell[n][m];
         this.title = title;
-        Dimension size = new Dimension(400,600);
+        Dimension size = new Dimension(613,800);
         setPreferredSize(size);
         setMaximumSize(size);
         setMinimumSize(size);
@@ -35,8 +48,8 @@ public class Classic_gamemode extends JFrame {
 
         // Panel chứa 9 ô cho chế độ classic 
         JPanel enviPanel = new JPanel();
-        enviPanel.setBounds(0, 0, 400, 400);
-        enviPanel.setLayout(new GridLayout(3,3,0,0));
+        enviPanel.setBounds(0, 0, 600, 600);
+        enviPanel.setLayout(new GridLayout(n,m,0,0));
 
         for(int i=0;i<n;i++){
             for(int j=0;j<m;j++){
@@ -50,10 +63,8 @@ public class Classic_gamemode extends JFrame {
                         update_current_val();
                         try {
                             checkwin(tmp);
-                        } catch (FileNotFoundException ex) {
-                            System.out.println("file ko ton tai");
                         } catch (IOException ex) {
-                            Logger.getLogger(Classic_gamemode.class.getName()).log(Level.SEVERE, null, ex);
+                            Logger.getLogger(Custom_gamemode.class.getName()).log(Level.SEVERE, null, ex);
                         }
                     }
                 });
@@ -66,7 +77,7 @@ public class Classic_gamemode extends JFrame {
 
         //Panel thuộc không gian còn lại của frame chứa các button điều kiển ,etc...
         JPanel bottomPanel = new JPanel();
-        bottomPanel.setBounds(0, 400, 400, 100);
+        bottomPanel.setBounds(0, 600, 600, 200);
 //        bottomPanel.setLayout(null);
         JButton returnButton = new JButton("Return");
 //        returnButton.setBounds(50, 25, 100, 50);

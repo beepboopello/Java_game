@@ -1,26 +1,29 @@
 package view;
 import java.awt.*;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import javax.swing.*;
 //import java.awt.event.ActionListener; // Bỏ dấu chú thích khi cần implement interface "ActionListener"
 
 public class Title_sc extends JFrame //implements ActionListener 
 {
-    private Highscore_JPanel highscore;
+    public Highscore_JPanel highscore;
     private Gamemode_JPanel gamemode;
     private Image_Panel_class background;
-    public Title_sc(){
+    public Title_sc() throws FileNotFoundException, IOException{
          // Thêm background từ file ảnh có sẵn - lớp image_panel - chưa hoàn thiện 
-        background = new Image_Panel_class("view/bg.png");
+        background = new Image_Panel_class("bg.png");
         background.setBackground(Color.white);
         this.setContentPane(background);
 
-         // Khởi tạo select pane chứa các lựa chọn của title screen
+         // Khởi tạo select panel chứa các lựa chọn của title screen
         this.add(new Select_JPanel(this));
 
         // Background của select pane 
         JPanel selectbackground = new JPanel(); 
         selectbackground.setBounds(0,0,500,720);
         selectbackground.setBackground(Color.lightGray);
+        selectbackground.setOpaque(false);
         this.add(selectbackground);
 
         //Panel chứa thông tin điểm cao của top 10 người chơi - mặc định visible = false 
@@ -60,5 +63,8 @@ public class Title_sc extends JFrame //implements ActionListener
     public boolean getVisible_gamemode(){
         return gamemode.isVisible();
     }
-     
+    
+    public void update_highscore() throws FileNotFoundException{
+        highscore = new Highscore_JPanel();
+    }
 }

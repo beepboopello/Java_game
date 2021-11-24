@@ -1,4 +1,5 @@
 package controller;
+import java.io.FileNotFoundException;
 import view.Title_sc;
 
 /*
@@ -11,7 +12,7 @@ import view.Title_sc;
  * @author khangiguess
  */
 public class Game {
-    public static void main(String[] args){
+    public static void main(String[] args) throws FileNotFoundException{
         new Title_sc();
     }
 }

@@ -14,8 +14,10 @@ public class Gamemode_JPanel extends JPanel {
         // Label chỉ dẫn 
         JPanel top = new JPanel();
         top.setBounds(0,100,780,100);
+        top.setOpaque(false);
         JLabel text_mode = new JLabel("Select your game mode");
         text_mode.setFont(font);
+        text_mode.setForeground(Color.white);
         top.add(text_mode);
         add(top);
         
@@ -40,9 +42,12 @@ public class Gamemode_JPanel extends JPanel {
         but_custom.setFont(font);
         but_custom.addActionListener(event ->{
             // Tạo frame chứa chế độ custom 
+            title.setVisible(false);
+            new Custom_gamemode(title);
         });
         mode_custom.setLayout(new GridLayout(1,1));
         mode_custom.add(but_custom);
         add(mode_custom);
+        setOpaque(false);
     }
 }
